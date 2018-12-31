@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+/*
+STEP 2 - 色の選択
+------------------------------------------------*/
+.step2{  
+  display: none;  
+  &-palette{    
+    @include mq-up(){
+      width: 80vw;
+    }
+  }
+  .obj{
+    position: relative;
+    margin: 0 10px 20px;
+    &:hover{
+      cursor: pointer;
+    }
+    &.is-select{    
+      .obj{
+        &-square{
+          border: 5px solid $color-black;
+        }
+        &-colorcode{        
+          color: $color-red;
+        }
+      }
+    }
+    &-square{
+      border-radius: 10px;
+      border: 0px solid $color-black;
+      @include easing;
+    }
+    &-colorcode{
+      text-align: center;
+      margin-top: 5px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      @include easing;
+      @include mq-down(){
+        font-size: 1.1rem;
+      }
+    }
+  }
+  &-count{
+    font-size: 1.2rem;
+    letter-spacing: 0;
+    font-style: italic;
+    margin-top: 5px;
+    @include mq-down(){
+      font-size: 1rem;
+    }
+  }
+}

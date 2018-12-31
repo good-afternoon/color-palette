@@ -1,0 +1,39 @@
+<%
+  var siteName,
+      pageTitle,
+      description;
+
+  siteName = 'COLOR PALETTE';
+  description = '';
+  if(meta.title == "top"){
+    pageTitle = siteName;
+  } else {
+    pageTitle = meta.title + '｜' + siteName;
+  }
+%><!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width">
+<meta name="keywords" content="" />
+<meta name="description" content="<%= description %>" />
+<!--OGP start-->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="<%= siteName %>">
+<meta property="og:title" content="<%= pageTitle %>">
+<meta property="og:description" content="<%= description %>">
+<meta property="og:image" content="https://good-afternoon.github.io/color-palette/assets/images/common/ogp.png">
+<!--OGP end-->
+<title><%= pageTitle %></title>
+<link rel="stylesheet" href="<%= meta.path %>assets/css/ress.css">
+<link rel="stylesheet" href="<%= meta.path %>assets/css/styles.css">
+
+<!--[if lt IE 9]>
+<script src="<%= meta.path %>assets/lib/js/html5.js"></script>
+<script src="<%= meta.path %>assets/lib/js/css3-mediaqueries.js"></script>
+<![endif]-->
+
+</head>
+<body id="-<%= meta.slug %>">

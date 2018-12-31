@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+/*
+STEP 3 - 色の並び替え
+------------------------------------------------*/
+.step3{
+  display: none;
+  &-palette{
+    @include mq-up(){
+      max-width: 500px;
+    }
+    @include mq-down(){
+      max-width: 250px;
+    }
+  }
+  &-text{
+    text-align: center;
+    font-weight: bold;
+    a{
+      padding-bottom: 2px;
+      border-bottom: 2px solid $color-black;
+    }
+  }
+  &-jsoncode{
+    margin-top: 30px;
+    &-copy{
+      width: 1px;
+      height: 1px;
+    }
+  }
+  .obj{
+    &-square{
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+}

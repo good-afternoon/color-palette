@@ -1,0 +1,112 @@
+@charset "utf-8";
+
+//// mixin ////
+$color-black: #000;
+$color-red: #d32f2f;
+
+@mixin easing{
+  transition: all 0.3s ease-out;
+}
+
+// Retina用に1/2サイズにする
+// floor : 小数点以下を切り下げ
+@mixin width($size) {
+  width: floor(($size / 2)) + px;
+}
+
+@mixin max-width($size) {
+  max-width: floor(($size / 2)) + px;
+}
+
+// font-sizeの計算
+@mixin font-size($font-size) {
+  // 小数の桁数は小数点第1位まで
+  // それ以下は切り捨て
+  font-size: decimal-floor( ($font-size / 10) / 2, 1) + rem;
+}
+
+// letter-spacingの計算
+@mixin letter-spacing($letter-spacing) {
+  // 小数の桁数は小数点第1位まで
+  // それ以下は切り捨て
+  letter-spacing: decimal-floor( ($letter-spacing / 1000), 2) + em;
+}
+
+// line-heightの計算
+@mixin line-height($font-height, $font-size) {
+  // 小数の桁数は小数点第1位まで
+  // それ以下は切り捨て
+  line-height: decimal-floor($font-height / $font-size, 1);
+}
+
+// 小数の桁数を制御する
+@function decimal-round($number, $digits: 0, $mode: round) {
+  $n: 1;
+  @if type-of($number) != number {
+    @warn '#{ $number } is not a number.';
+    @return $number;
+  }
+  @if type-of($digits) != number {
+    @warn '#{ $digits } is not a number.';
+    @return $number;
+  } @else if not unitless($digits) {
+    @warn '#{ $digits } has a unit.';
+    @return $number;
+  }
+  @if $digits > 0 {
+    @for $i from 1 through $digits {
+      $n: $n * 10;
+    }
+  }
+  @if $mode == round {
+    @return round($number * $n) / $n;
+  } @else if $mode == ceil {
+    @return ceil($number * $n) / $n;
+  } @else if $mode == floor {
+    @return floor($number * $n) / $n;
+  } @else {
+    @warn '#{ $mode } is undefined keyword.';
+    @return $number;
+  }
+}
+
+@function decimal-ceil($number, $digits: 0) {
+  @return decimal-round($number, $digits, ceil);
+}
+
+@function decimal-floor($number, $digits: 0) {
+  @return decimal-round($number, $digits, floor);
+}
+
+
+//// media query ////
+
+//min-width
+$breakpoint-up: (
+  'sm'          : 'screen and (min-width: 668px)',  //SP
+  'md'          : 'screen and (min-width: 769px)',  //ipad - 縦向き
+  'pc'          : 'screen and (min-width: 1081px)', //PC
+  'ipad'        : 'screen and (min-width: 1113px)', //10.5インチ iPad - 横向き
+) !default;
+
+//max-width
+$breakpoint-down: (
+  'sm-wide'     : 'screen and (max-width: 667px) and (orientation: landscape)',  //SP - 横向き
+  'iphone5'     : 'screen and (max-width: 350px)',  //SP - iPhone5以下
+  'sm'          : 'screen and (max-width: 667px)',  //SP
+  'md'          : 'screen and (max-width: 768px)',  //ipad - 縦向き
+  'ipad'        : 'screen and (max-width: 1112px)', //10.5インチ ipad - 横向き
+  //'ipad'        : 'screen and (max-width: 1024px)', //ipad - 横向き
+) !default;
+
+@mixin mq-up($breakpoint: md) { //defaultは'md'サイズ指定
+  @media #{map-get($breakpoint-up, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin mq-down($breakpoint: md) { //defaultは'md'サイズ指定
+  @media #{map-get($breakpoint-down, $breakpoint)} {
+    @content;
+  }
+}

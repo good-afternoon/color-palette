@@ -1,0 +1,135 @@
+@charset "utf-8";
+
+/*
+STEP 1 - カテゴリーの選択
+------------------------------------------------*/
+.step1{
+  //display: none;
+  .category{    
+    max-width: 800px;
+    margin: 0 auto;
+    @include mq-up(){
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 80px;
+    }
+    &-item{
+      text-align: center;
+      margin: 0 0 60px;
+      -webkit-tap-highlight-color: transparent;
+      @include easing;      
+      @include mq-up(){
+        width: 33%;
+      }
+      &.is-select{
+        color: $color-red;
+      }
+      &:hover{
+        cursor: pointer;
+        //color: $color-red;
+      }
+      &:last-child{
+        margin-bottom: 0;
+      }
+      &.is-natural{
+        &::after{
+          background: rgba(233, 239, 244, 1);
+        }
+      }
+      &.is-curiosity{
+        &::after{
+          background: rgba(239, 119, 71, 1);
+        }
+      }
+      &.is-dreamy{
+        &::after{
+          background: rgba(250, 211, 180, 1);
+        }
+      }
+      &.is-magical{
+        &::after{
+          background: rgba(22, 42, 65, 1);
+        }
+      }
+      &.is-fresh{
+        &::after{
+          background: rgba(248, 232, 21, 1);
+        }
+      }
+      &.is-solitude{
+        &::after{
+          background: rgba(151, 186, 188, 1);
+        }
+      }
+      &.is-romantic{
+        &::after{
+          background: rgba(169, 102, 125, 1);
+        }
+      }
+      &.is-mysterious{
+        &::after{
+          background: rgba(62, 60, 65, 1);
+        }
+      }       
+      &.is-retro{
+        &::after{
+          background: rgba(229, 152, 84, 1);
+        }
+      }
+      &.is-tranquility{
+        &::after{
+          background: rgba(76, 113, 110, 1);
+        }
+      }
+      &.is-playful{
+        &::after{
+          background: rgba(236, 97, 159, 1);
+        }
+      }
+      &.is-delicate{
+        &::after{
+          background: rgba(251, 239, 225, 1);
+        }
+      }
+      &.is-trendy{
+        &::after{
+          background: rgba(236, 97, 63, 1);
+        }
+      }
+      &.is-nostalgia{
+        &::after{
+          background: rgba(215, 230, 181, 1);
+        }
+      }
+      &.is-lush{
+        &::after{
+          background: rgba(18, 135, 55, 1);
+        }
+      }
+      &::after{
+        content: "";
+        display: block;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 20px auto 0;    
+      }
+    }
+    &-name{     
+      display: inline-block;       
+      font-weight: bold;
+      span{
+        display: block;
+      }
+      &-en{
+        font-size: 2.5rem;
+        letter-spacing: 0.1em;
+      }
+      &-jp{        
+        font-size: 1.2rem;
+        margin-top: 5px;
+      }
+    }
+  }
+}

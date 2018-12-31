@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+/*
+ARCHIVE
+------------------------------------------------*/
+
+.archive{  
+  padding: 100px 0;
+  margin: 0 auto;
+  @include mq-up(){
+    width: 90vw;
+  }
+  @include mq-down(){
+    padding-top: 75px;
+    padding-bottom: 35px;
+  }
+  &-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+    @include mq-down(){
+      margin-top: 40px;
+    } 
+  }
+  &-item{
+    margin: 0 50px 50px;
+    @include mq-down(){
+      margin: 0 20px 40px;
+    }
+  }
+  &-date{
+    text-align: right;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: 0.5em;
+    font-size: 1.2rem;
+    @include mq-down(){
+      font-size: 1rem;
+    }
+  }
+  &-palette{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;    
+    box-sizing: border-box;
+    @include mq-up(){
+      max-width: 250px;
+    }
+    @include mq-down(){
+      max-width: 125px;
+    }
+    .obj-square{
+      width: 50px;
+      height: 50px;
+      @include mq-down(){
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+}

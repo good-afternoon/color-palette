@@ -1,0 +1,13 @@
+.idea
+.sass-cache
+.DS_Store
+node_modules
+bower_components
+
+app/dev/assets/js/generator.js
+app/dev/assets/json/generator/*
+app/dev/ejs/generator/*
+
+app/docs/assets/js/generator.js
+app/docs/assets/json/generator/*
+app/docs/generator/*

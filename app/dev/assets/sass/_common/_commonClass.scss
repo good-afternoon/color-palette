@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+.onlySp{
+	display: none;
+}
+.sp{
+	display: none;
+}
+.pad{
+	display: none;
+}
+.onlyiphone5{
+	display: none;
+}
+
+@media screen and (max-width: 1024px) {
+	.pad{
+		display: block;
+	}
+}
+
+@media screen and (max-width: 768px) {	
+	.pc{
+		display: none;
+	}
+	.sp{
+		display: block;
+	}
+}
+@media screen and (max-width: 667px) {
+	.onlyPc{
+		display: none;
+	}
+	.onlySp{
+		display: block;
+	}
+}
+@media screen and (max-width: 350px) {
+	.iphone5{
+		display: none;
+	}
+	.onlyiphone5{
+		display: block;
+	}
+}

@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+/*
+CONCEPT
+------------------------------------------------*/
+
+.concept{
+  &-detail{
+    font-size: 1.6rem;
+    line-height: 2;
+    margin: 50px 25px 0;
+    text-align: center;
+    p{
+      margin-bottom: 2em;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+    a{
+      text-decoration: underline;
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
+  &-mockup{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 80%;
+    margin: 0 auto;
+    &-pc{
+      max-width: 500px;
+      margin-right: 40px;
+      @include mq-down(){
+        margin-right: 30px;
+      }
+    }
+    &-sp{
+      max-width: 100px;
+    }
+    &-notes{
+      display: inline-block;
+      line-height: 1.5;
+      text-align: center;
+      margin-top: 20px;
+    }
+  }
+}
