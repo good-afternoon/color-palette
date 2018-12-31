@@ -12,7 +12,7 @@ var gulp     = require("gulp"),
     imagemin = require("gulp-imagemin"); //画像の圧縮
 
 var DEV      = "../app/dev/",
-    PUBLIC   = "../app/docs/",
+    PUBLIC   = "../docs/",
     ASSETS   = "assets/";
 
 //ejs
